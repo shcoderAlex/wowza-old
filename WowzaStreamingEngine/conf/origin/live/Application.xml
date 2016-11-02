@@ -196,6 +196,11 @@
 				<Class>com.wowza.wms.module.ModuleFLVPlayback</Class>
 			</Module>
 			<Module>
+				<Name>ModuleS3Upload</Name>
+				<Description>Uploads recordings to Amazon S3.</Description>
+				<Class>com.wowza.wms.plugin.s3upload.ModuleS3Upload</Class>
+			</Module>
+			<Module>
         <Name>ModuleCoreSecurity</Name>
         <Description>Core Security Module for Applications</Description>
         <Class>com.wowza.wms.security.ModuleCoreSecurity</Class>
@@ -212,6 +217,26 @@
 				<Name>pushPublishMapPath</Name>
 				<Value>${com.wowza.wms.context.VHostConfigHome}/conf/${com.wowza.wms.context.Application}/PushPublishMap.txt</Value>
 				<Type>String</Type>
+			</Property>
+			<Property>
+				<Name>s3UploadAccessKey</Name>
+				<Value>{{WOWZA_S3_ACCESS_KEY}}</Value>
+				<Type>String</Type>
+			</Property>
+			<Property>
+				<Name>s3UploadSecretKey</Name>
+				<Value>s{{WOWZA_S3_SECRET_KEY}}</Value>
+				<Type>String</Type>
+			</Property>
+			<Property>
+				<Name>s3UploadBucketName</Name>
+				<Value>{{WOWZA_S3_BUCKET_NAME}}</Value>
+				<Type>String</Type>
+			</Property>
+			<Property>
+				<Name>s3UploadDeletOriginalFiles</Name>
+				<Value>true</Value>
+				<Type>Boolean</Type>
 			</Property>
 		</Properties>
 	</Application>

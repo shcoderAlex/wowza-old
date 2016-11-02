@@ -63,4 +63,6 @@ echo "exit 0;" >> /usr/local/WowzaStreamingEngine-${WOWZA_VERSION}/scripts/valid
 chmod +x /usr/local/WowzaStreamingEngine-${WOWZA_VERSION}/scripts/validatelicense-linux.sh /usr/local/WowzaStreamingEngine-${WOWZA_VERSION}/scripts/validateInstall-linux.sh 
 ./WowzaStreamingEngine.run --mode unattended --licensekey ${WOWZA_LICENSE} --username ${WOWZA_USER_NAME} --password ${WOWZA_USER_PASSWORD} --prefix .
 
+chmod 775 /usr/local/WowzaStreamingEngine-${WOWZA_VERSION}/content
+
 rm WowzaStreamingEngine.run
