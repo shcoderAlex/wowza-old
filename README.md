@@ -14,16 +14,6 @@
 
 ### Example
 
-### Wowza LB
-docker run -d --name wowza-lb -p 3935:1935 -p 8086:8088 --net consul_default \
-  -e WOWZA_USER_NAME=admin \
-  -e WOWZA_USER_PASSWORD=admin \
-  -e WOWZA_LICENSE=ET2A4-ntGJH-vjEM3-YbQY4-d6T9V-BVvVF-7mZxjdWappYK \
-  -e WOWZA_ROLE=lb \
-  -e CONSUL_CLUSTER_IPS=node-1 \
-  -e CONSUL_ENCRYPT=q7Gsg6LSdrtWFvBpw7vmdA== \
-shcoder/wowza 
-
 ### Wowza Origin
 docker run -d --name wowza-origin -p 8088:8088 -p 3936:1935 \
   -e WOWZA_USER_NAME=admin \
@@ -68,15 +58,3 @@ docker service create --network consul-net --name wowza-edge -p 1936:1935 --cons
   -e CONSUL_SERVICE_NAME=wowza-edge \
   -e CONSUL_SERVICE_TAGS=edge \
 shcoder/wowza
-
-### Wowza LB
-docker service create --network consul-net --name wowza-lb -p 1937:1935 --constraint "node.labels.node==wowza-lb" --replicas=1\
-  -e WOWZA_USER_NAME=admin \
-  -e WOWZA_USER_PASSWORD=admin \
-  -e WOWZA_LICENSE=ET2A4-ntGJH-vjEM3-YbQY4-d6T9V-BVvVF-7mZxjdWappYK \
-  -e WOWZA_ROLE=lb \
-  -e CONSUL_CLUSTER_IPS=consul \
-  -e CONSUL_ENCRYPT=q7Gsg6LSdrtWFvBpw7vmdA== \
-  -e CONSUL_SERVICE_NAME=wowza-lb \
-  -e CONSUL_SERVICE_TAGS=lb \
-shcoder/wowza 
