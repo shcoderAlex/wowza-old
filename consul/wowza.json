@@ -1,0 +1,15 @@
+{
+  "service": {
+    "name": "{{CONSUL_SERVICE_NAME}}",
+    "tags": [],
+    "port": 1935,
+    "enableTagOverride": false,
+    "check": {
+      "id": "wowza",
+      "name": "HTTP API on port 1935",
+      "http": "http://localhost:1935",
+      "interval": "10s",
+      "timeout": "1s"
+    }
+  }
+}

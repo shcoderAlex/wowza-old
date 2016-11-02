@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+
+  wowza-lb:
+    image: shcoder/wowza
+    ports:
+      - 3000:1935
+    environment:
+      - WOWZA_USER_NAME=admin
+      - WOWZA_USER_PASSWORD=admin
+      - WOWZA_LICENSE=ET2A4-ntGJH-vjEM3-YbQY4-d6T9V-BVvVF-7mZxjdWappYK
+      - WOWZA_ROLE=lb
+      - WOWZA_LB_KEY=123456789
+      - WOWZA_LB_IP=wowza-lb
+      - WOWZA_LB_PORT=1935
+
+  wowza-edge:
+    image: shcoder/wowza
+    ports:
+      - 1935:1935
+    environment:
+      - WOWZA_USER_NAME=admin
+      - WOWZA_USER_PASSWORD=admin
+      - WOWZA_LICENSE=ET2A4-ntGJH-vjEM3-YbQY4-d6T9V-BVvVF-7mZxjdWappYK
+      - WOWZA_ROLE=edge
+      - WOWZA_LB_KEY=123456789
+      - WOWZA_LB_IP=wowza-lb
+      - WOWZA_LB_PORT=1935
+      - WOWZA_ORIGIN_IP_ADDRESSES=wowza-origin
+
+  wowza-origin:
+    image: shcoder/wowza
+    ports:
+      - 3001:1935
+      - 8088:8088
+    environment:
+      - WOWZA_USER_NAME=admin
+      - WOWZA_USER_PASSWORD=admin
+      - WOWZA_LICENSE=ET2A4-ntGJH-vjEM3-YbQY4-d6T9V-BVvVF-7mZxjdWappYK
+      - WOWZA_ROLE=origin
