@@ -17,10 +17,6 @@ if [ ! -z "${CONSUL_SERVICE_TAGS}" ]; then
   sed -i -e "s#\"tags\":.*#\"tags\": [\"${TAGS}\"],#" /etc/consul.d/wowza.json
 fi
 
-sed -i "s/{{WOWZA_LB_KEY}}/${WOWZA_LB_KEY}/g" /tmp/conf/${WOWZA_ROLE}/Server.xml
-sed -i "s/{{WOWZA_LB_IP}}/${WOWZA_LB_IP}/g" /tmp/conf/${WOWZA_ROLE}/Server.xml
-sed -i "s/{{WOWZA_LB_PORT}}/${WOWZA_LB_PORT}/g" /tmp/conf/${WOWZA_ROLE}/Server.xml
-
 sed -i "s/{{WOWZA_ORIGIN_IP}}/${WOWZA_ORIGIN_IP}/g" /tmp/conf/${WOWZA_ROLE}/Server.xml
 sed -i "s/{{WOWZA_ORIGIN_IP_ADDRESSES}}/${WOWZA_ORIGIN_IP_ADDRESSES}/g" /tmp/conf/${WOWZA_ROLE}/live/Application.xml
 
