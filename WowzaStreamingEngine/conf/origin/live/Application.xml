@@ -28,7 +28,7 @@
 
 		-->
 		<Streams>
-			<StreamType>live</StreamType>
+			<StreamType>live-record</StreamType>
 			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/content</StorageDir>
 			<KeyDir>${com.wowza.wms.context.VHostConfigHome}/keys</KeyDir>
 			<!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, smoothstreamingpacketizer, sanjosestreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater, smoothstreamingrepeater, sanjosestreamingrepeater, mpegdashstreamingrepeater -->
@@ -177,6 +177,11 @@
 		</Repeater>
 		<StreamRecorder>
 			<Properties>
+<!--         <Property>
+            <Name>streamRecorderUseSimpleFileVersionNaming</Name>
+            <Value>true</Value>
+            <Type>Boolean</Type>
+        </Property> -->
 			</Properties>
 		</StreamRecorder>
 		<Modules>
@@ -225,7 +230,7 @@
 			</Property>
 			<Property>
 				<Name>s3UploadSecretKey</Name>
-				<Value>s{{WOWZA_S3_SECRET_KEY}}</Value>
+				<Value>{{WOWZA_S3_SECRET_KEY}}</Value>
 				<Type>String</Type>
 			</Property>
 			<Property>
