@@ -85,7 +85,7 @@
 		<Client>
 			<IdleFrequency>-1</IdleFrequency>
 			<Access>
-				<StreamReadAccess></StreamReadAccess>
+				<StreamReadAccess>*</StreamReadAccess>
 				<StreamWriteAccess>*</StreamWriteAccess>
 				<StreamAudioSampleAccess></StreamAudioSampleAccess>
 				<StreamVideoSampleAccess></StreamVideoSampleAccess>

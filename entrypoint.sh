@@ -20,8 +20,8 @@ fi
 sed -i "s/{{WOWZA_ORIGIN_IP}}/${WOWZA_ORIGIN_IP}/g" /tmp/conf/${WOWZA_ROLE}/Server.xml
 sed -i "s/{{WOWZA_ORIGIN_IP_ADDRESSES}}/${WOWZA_ORIGIN_IP_ADDRESSES}/g" /tmp/conf/${WOWZA_ROLE}/live/Application.xml
 
-sed -i "s/{{WOWZA_S3_SECRET_KEY}}/${WOWZA_S3_SECRET_KEY}/g" /tmp/conf/${WOWZA_ROLE}/live/Application.xml
 sed -i "s/{{WOWZA_S3_ACCESS_KEY}}/${WOWZA_S3_ACCESS_KEY}/g" /tmp/conf/${WOWZA_ROLE}/live/Application.xml
+sed -i "s/{{WOWZA_S3_SECRET_KEY}}/${WOWZA_S3_SECRET_KEY}/g" /tmp/conf/${WOWZA_ROLE}/live/Application.xml
 sed -i "s/{{WOWZA_S3_BUCKET_NAME}}/${WOWZA_S3_BUCKET_NAME}/g" /tmp/conf/${WOWZA_ROLE}/live/Application.xml
 
 if [ ${WOWZA_ROLE} = "tester" ]; then
